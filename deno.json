@@ -1,5 +1,6 @@
 {
   "imports": {
+    "@utility/date": "jsr:@utility/date@^0.2.1",
     "hono": "jsr:@hono/hono@^4.6.3"
   },
   "tasks": {
