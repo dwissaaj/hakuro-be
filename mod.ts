@@ -1,4 +1,4 @@
-import { Client, Databases,ID } from "https://deno.land/x/appwrite/mod.ts";
+import { Client, Databases,ID, Query } from "https://deno.land/x/appwrite/mod.ts";
 
 let client: Client = new Client();
 
@@ -8,6 +8,7 @@ client
     .setKey(`${Deno.env.get('DENO_APPWRITE_SETKEY')}`) 
     
 ;
-export const database = new Databases(client)
 
-export const IDs = new ID()
+export const database = new Databases(client);
+export const IDs = new ID();
+export const query = Query
