@@ -3,9 +3,9 @@ import { Client, Databases,ID, Query } from "https://deno.land/x/appwrite/mod.ts
 let client: Client = new Client();
 
 client
-    .setEndpoint(`${Deno.env.get('DENO_APPWRITE_ENDPOINT')}`)
-    .setProject(`${Deno.env.get('DENO_APPWRITE_PROJECT')}`) 
-    .setKey(`${Deno.env.get('DENO_APPWRITE_SETKEY')}`) 
+    .setEndpoint(`${Deno.env.get('APPWRITE_ENDPOINT')}`)
+    .setProject(`${Deno.env.get('APPWRITE_PROJECT')}`) 
+    .setKey(`${Deno.env.get('APPWRITE_SETKEY')}`) 
     
 ;
 

@@ -4,8 +4,8 @@ import { database, query, } from "../mod.ts";
 
 
 const blogFunction = {
-  dbId: Deno.env.get('DENO_APPWRITE_DATABASEID') as string,
-  collectionId: Deno.env.get('DENO_APPWRITE_COLLECTION_BLOGPOST') as string
+  dbId: Deno.env.get('APPWRITE_DATABASEID') as string,
+  collectionId: Deno.env.get('APPWRITE_COLLECTION_BLOGPOST') as string
 }
 
 export const book = new Hono()
@@ -19,7 +19,6 @@ book.get('/', async (c) => {
     ]
   ) 
 
-  console.log('Hit!!', name)
   return c.json({message : name}, {status: 200})
 }    
 )
