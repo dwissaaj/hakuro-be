@@ -10,6 +10,7 @@ const blogFunction = {
 
 export const book = new Hono()
 book.get('/', async (c) => {
+  
   const name = await database.listDocuments(
     blogFunction.dbId,
     blogFunction.collectionId,
@@ -18,13 +19,13 @@ book.get('/', async (c) => {
       query.select(["$id", "title", "content", "snippet", "image", "tags"])
     ]
   ) 
-
   return c.json({message : name}, {status: 200})
 }    
 )
 
 book.get('/:id', async (c) => {
   const params = c.req.param('id')
+
   try {
       const blogpost = await database.getDocument(
         blogFunction.dbId,
