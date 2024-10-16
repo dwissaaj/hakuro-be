@@ -4,7 +4,8 @@
     "hono": "jsr:@hono/hono@^4.6.3"
   },
   "tasks": {
-    "start": "deno run -A --env main.ts"
+    "start": "deno run -A --env main.ts",
+    "dev": "deno run -A --env --watch main.ts"
   },
   "compilerOptions": {
     "jsx": "precompile",
