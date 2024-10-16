@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { database, query } from "../mod.ts";
-
+import { ErrorAppwrite } from "../appwrite/ErrorAppwrite.ts";
 const blogFunction = {
   dbId: Deno.env.get("APPWRITE_DATABASEID") as string,
   collectionId: Deno.env.get("APPWRITE_COLLECTION_BLOGPOST") as string,
@@ -31,9 +31,9 @@ book.get("/:id", async (c) => {
     if (blogpost) {
       return c.json(blogpost);
     }
-  } catch (e: any) {
-    console.log("Error at", e);
-
-    return c.json({ message: e["message"] }, { status: e["code"] });
+  } catch (e) {
+    const error = e as ErrorAppwrite;
+    console.log("Error at fetch single Id", error);
+    return c.json({ message: error.message }, { status: error.code });
   }
 });
